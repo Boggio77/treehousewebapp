@@ -1,0 +1,154 @@
+/* Base Styles */
+li, a, button {
+    font-family: Calibri;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header {
+    background-color: #939f99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    height: 3vh;
+    position: relative;
+}
+
+.logo {
+    cursor: pointer;
+    width: 100px;
+    height: auto;
+    /* Ensure logo stays on the left */
+    flex: 1;  /* Allow the logo to take up space on the left */
+}
+
+.nav-wrapper {
+    flex: 2;
+    display: flex;
+    justify-content: center;  /* Center the navigation links between the logo and the button */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;  /* Space links evenly within the nav-wrapper */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color: #828e7f;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(181, 194, 203, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(130, 132, 127, 0.8);
+}
+
+/* Default view for screens larger than 600px */
+.menu-button {
+    display: none; /* Hide the dropdown button on large screens */
+}
+
+header a.cta {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;  /* Align the "Book Now" button to the right */
+}
+
+
+
+
+
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+    header {
+        justify-content: space-between;
+        padding: 20px 5%;
+    }
+
+    .logo {
+        position: relative;
+        left: 0;
+        transform: none;
+    }
+
+    .nav-links {
+        display: none; /* Hide the navigation links by default on small screens */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #939f99;
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links.show {
+        display: flex; /* Show when the dropdown button is clicked */
+    }
+
+    .nav-links li {
+        display: block;
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Show the menu button only on screens smaller than 600px */
+    .menu-button {
+        display: block;
+        background-color: rgba(181, 194, 203, 1);
+        padding: 10px 15px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .menu-button:hover {
+        background-color: rgba(130, 132, 127, 0.8);
+    }
+
+    /* Book Now Button inside the dropdown at the bottom */
+    .nav-links li.cta-list-item {
+        padding: 0;
+    }
+
+    .cta {
+        display: block;
+        margin-left: 0;
+        width:auto;
+        text-align: center;
+        padding: 15px;
+        background-color: rgba(181, 194, 203, 1);
+        margin-top: 10px;
+        border-radius: 50px;
+        background-color: transparent;
+    }
+
+    
+}
