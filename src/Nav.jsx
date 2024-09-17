@@ -13,9 +13,9 @@ function Nav() {
 
   return (
     <header>
-      <a href="index.html" className="logo">
+      <a href="index.html" className="logo"> 
         <img
-          src="images/pngtree-green-pine-vector-pine-forest-cartoon-illustration-style-png-image_4074398.jpeg"
+          src="../public/images/"
           alt="logo"
         />
       </a>

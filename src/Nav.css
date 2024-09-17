@@ -14,27 +14,25 @@ header {
     align-items: center;
     padding: 30px 10%;
     height: 3vh;
-    position: relative;
+    position: relative; /* Add this to make it the reference for absolute positioning */
 }
 
 .logo {
     cursor: pointer;
     width: 100px;
     height: auto;
-    /* Ensure logo stays on the left */
-    flex: 1;  /* Allow the logo to take up space on the left */
+    flex: 1;  
 }
 
 .nav-wrapper {
-    flex: 2;
     display: flex;
-    justify-content: center;  /* Center the navigation links between the logo and the button */
+    justify-content: space-between;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: space-between;  /* Space links evenly within the nav-wrapper */
+    justify-content: center; 
     margin: 0;
     padding: 0;
 }
@@ -43,6 +41,7 @@ header {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 10px;
+    justify-content: center;
 }
 
 .nav-links li a {
@@ -88,7 +87,7 @@ header a.cta {
         padding: 20px 5%;
     }
 
-    .logo {
+    #logo {
         position: relative;
         left: 0;
         transform: none;
@@ -98,11 +97,13 @@ header a.cta {
         display: none; /* Hide the navigation links by default on small screens */
         flex-direction: column;
         position: absolute;
-        top: 100%;
-        right: 0;
+        top: 100%;  /* Set the dropdown to appear right below the header */
+        left: 0;    /* Align to the left edge of the header */
         background-color: #939f99;
-        width: 100%;
+        width: 100%; /* Make the dropdown span the full width of the header */
         padding: 0;
+        z-index: 999; /* Ensure it appears above other content */
+        justify-content: center;
     }
 
     .nav-links.show {
@@ -127,6 +128,7 @@ header a.cta {
         position: absolute;
         right: 20px;
         top: 20px;
+        top: auto;
     }
 
     .menu-button:hover {
@@ -136,6 +138,7 @@ header a.cta {
     /* Book Now Button inside the dropdown at the bottom */
     .nav-links li.cta-list-item {
         padding: 0;
+        text-align: center;
     }
 
     .cta {
@@ -148,7 +151,13 @@ header a.cta {
         margin-top: 10px;
         border-radius: 50px;
         background-color: transparent;
+        justify-content: center;
     }
+    .nav-links li.cta-list-item a.cta {
+        display: inline-block;
+        width: auto; /* Ensures it doesn't stretch across the screen */
+    }
+    
 
     
 }
