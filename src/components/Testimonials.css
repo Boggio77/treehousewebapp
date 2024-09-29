@@ -28,12 +28,6 @@ h3 {
     text-align: center;
 }
 
-.testimonials {
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
-
 .slider {
     position: relative;
     width: 100%;
@@ -42,36 +36,70 @@ h3 {
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item {
     position: absolute;
     width: 300px;
-    height: fit-content;
     min-height: 400px;
-    text-align: justify;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
-    transition: 0.5s;
-    left: calc(50% - 150px);
+    transition: transform 0.5s, opacity 0.5s, z-index 0.5s, filter 0.5s;
+    text-align: justify;
+    left: calc(50% - 150px); /* This centers the items initially */
     top: 0;
-    align-content: center;
+    opacity: 0; /* Start with invisible items */
+    z-index: -1; /* Start with lower z-index */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item.active {
+    z-index: 1; /* Highest z-index for active item */
+    opacity: 1; /* Fully visible */
+    transform: none; /* No transformation for active item */
+    filter: none; /* No blur for active item */
+}
+
+.item.blur {
+    filter: blur(5px);
+    opacity: 0.6;
+}
+
+.item.left, .item.right {
+    transform: scale(0.8);
+    opacity: 0.6;
+}
+
+.item.left {
+    transform: translateX(-120px) scale(0.8);
+}
+
+.item.right {
+    transform: translateX(120px) scale(0.8);
 }
 
 #next, #prev {
     position: absolute;
-    top: 30%;
+    top: 50%;
     color: #fff;
     background-color: transparent;
     border: none;
-    font-size: xxx-large;
+    font-size: 3rem;
     font-family: monospace;
     font-weight: bold;
-    left: 50px;
+    cursor: pointer;
 }
 
 #next {
-    left: unset;
     right: 50px;
+    color: #000000;
+}
+
+#prev {
+    left: 50px;
+    color: #000000;
 }
